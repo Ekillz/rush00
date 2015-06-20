@@ -1,55 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Vessel.class.hpp                                   :+:      :+:    :+:   */
+/*   Object.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/20 16:26:23 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 18:23:40 by emammadz         ###   ########.fr       */
+/*   Created: 2015/06/20 18:20:21 by emammadz          #+#    #+#             */
+/*   Updated: 2015/06/20 18:32:28 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VESSEL_CLASS_HPP
-#define VESSEL_CLASS_HPP
+#ifndef OBJECT_CLASS_HPP
+#define OBJECT_CLASS_HPP
 
 #include "IEntity.class.hpp"
 
-class Vessel : public IEntity
+class Object : public IEntity
 {
 	public:
-		Vessel(void);
-		Vessel(Vessel const & src);
-		Vessel & operator=(Vessel const & src);
-		~Vessel(void);
+		Object(void);
+		Object(int x, int y, int dmg);
+		Object(Object const & src);
+		Object & operator=(Object const & src);
+		~Object(void);
 
 		void collideAction();
 
-		int getDmg() const;
-		int getArmor() const;
-		int getAmmo() const;
 		int getX() const;
 		int getY() const;
-		int getChp() const;
-		int getMhp() const;
+		int getDmg() const;
 
-		void setDmg(int amount);
-		void setArmor(int amount);
-		void setAmmo(int amount);
 		void setX(int amount);
 		void setY(int amount);
-		void setChp(int amount);
-		void setMhp(int amount);
+		void setDmg(int amount);
 
 	protected:
-		int _chp;
-		int _mhp;
 		int _x;
 		int _y;
 		int _dmg;
-		int _armor;
-		int _ammo;
-
 };
 
 #endif
