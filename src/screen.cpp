@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:42:36 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 21:01:21 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 21:17:36 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		scr_init( void )
 	if ( max_x < MAX_W || max_y < MAX_H )
 	{
 		endwin();
-		printf( "Screen must be at least %dx / %dy\n", MAX_W, MAX_H );
+		printf( "Screen must be at least %dpx / %dpx\n", MAX_W * 8, MAX_H * 16 );
 		exit(0);
 	}
 
