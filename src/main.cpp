@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:06:18 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 18:54:06 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 21:02:20 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 int		main(void)
 {
 	Player		*p;
+	Enemy		*e;
 
 	p = new Player;
-	// data_init( p );
+	e = new Enemy;
+	data_init( p );
 	scr_init();
-	scr_upd( p );
+	scr_upd( p, e );
 
-	get_player_inputs( p );
+	main_loop( p, e );
 
 	// ch = getch();				/* Wait for user input */
 	// if ( ch == KEY_F(1) )		/* Without keypad enabled this will */

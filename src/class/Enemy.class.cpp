@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.class.cpp                                   :+:      :+:    :+:   */
+/*   Enemy.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:55:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 19:43:58 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 20:57:49 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Enemy.class.hpp"
+#include "header.hpp"
 
 Enemy::Enemy(void) : Vessel()
 {
@@ -67,4 +67,23 @@ void Enemy::collideAction()
 void Enemy::shoot()
 {
 	std::cout << "enemy shooted" << std::endl;
+}
+
+void Enemy::genMov()
+{
+	switch ( random() % 3 )
+	{
+		case		1:
+			if ( this->getX() - 1 > 0 )
+				this->setX( getX() - 1 );
+			break;
+		case		2:
+			if ( this->getX() + 1 < MAX_W )
+				this->setX( getX() + 1 );
+			break;
+		case		3:
+			break;
+		default:
+			break;
+	}
 }

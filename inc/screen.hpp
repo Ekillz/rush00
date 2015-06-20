@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:46:35 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 19:01:14 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 19:59:47 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@
 #include "data.hpp"
 
 void		scr_end( void );
-void		scr_upd( Player *p );
+void		scr_upd( Player *p, Enemy *e );
 void		scr_init( void );
-void		get_action( action_t *action );
-void		apply_action( action_t action );
-void		get_player_inputs( Player *p );
 
 #endif /* SCREEN_HPP */

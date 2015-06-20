@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:57:14 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 18:50:29 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 21:05:12 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef enum
 
 void			data_init( Player *p );
 
-# define PLAYER		'^'
+# define PLAYER		"/^\\"
+# define ENEMY		"-+-"
 
 #endif

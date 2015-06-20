@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Player.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:55:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 18:39:51 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 19:58:27 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Player.class.hpp"
+#include "header.hpp"
 
 Player::Player(void) : Vessel()
 {
 	this->_x = 1;
-	this->_y = 1;
+	this->_y = MAX_H;
 	this->_chp = 1;
 	this->_mhp = 1;
 	this->_score = 0;

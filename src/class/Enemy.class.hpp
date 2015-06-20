@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Enemy.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:01:58 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 19:28:49 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 19:50:45 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Enemy : public Vessel
 
 		void collideAction();
 		void shoot();
+		void genMov();
 };
 
 #endif
