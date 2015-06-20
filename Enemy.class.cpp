@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player.class.cpp                                   :+:      :+:    :+:   */
+/*   Enemy.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:55:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 18:15:05 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 18:15:42 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Player.class.hpp"
+#include "Enemy.class.hpp"
 
-Player::Player(void) : Vessel()
+Enemy::Enemy(void) : Vessel()
 {
 	this->_x = 1;
 	this->_y = 1;
 	this->_chp = 1;
 	this->_mhp = 1;
-	this->_score = 0;
 	this->_dmg = 1;
 	this->_armor = 0;
 	this->_ammo = 20;
 }
 
-Player & Player::operator=(Player const & src)
+Enemy & Enemy::operator=(Enemy const & src)
 {
 	this->_x = src.getX();
 	this->_y = src.getY();
 	this->_chp = src.getChp();
 	this->_mhp = src.getMhp();
-	this->_score = src.getScore();
 	this->_dmg = src.getDmg();
 	this->_armor = src.getArmor();
 	this->_ammo = src.getAmmo();
@@ -38,27 +36,23 @@ Player & Player::operator=(Player const & src)
 	return (*this);
 }
 
-Player::Player(Player const & src)
+Enemy::Enemy(Enemy const & src)
 {
 	*this = src;
 }
 
-Player::~Player(void)
+Enemy::~Enemy(void)
 {
-	std::cout << "Player dead" << std::endl;
+	std::cout << "Enemy dead" << std::endl;
 	return;
 }
 
-void Player::collideAction()
+void Enemy::collideAction()
 {
-	std::cout << "new collide action" << std::endl;
+	std::cout << "enemy: new collide action" << std::endl;
 }
 
-void Player::shoot()
+void Enemy::shoot()
 {
-	std::cout << "player shooted" << std::endl;
+	std::cout << "enemy shooted" << std::endl;
 }
-
-int Player::getScore() const { return this->_score; }
-
-void Player::setScore(int amount) { this->_score = amount;}

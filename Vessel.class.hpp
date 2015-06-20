@@ -6,7 +6,7 @@
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:26:23 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 16:50:27 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 18:15:46 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,34 @@ class Vessel : public IEntity
 		Vessel(Vessel const & src);
 		Vessel & operator=(Vessel const & src);
 		~Vessel(void);
+
 		void collideAction();
+
+		int getDmg() const;
+		int getArmor() const;
+		int getAmmo() const;
+		int getX() const;
+		int getY() const;
+		int getChp() const;
+		int getMhp() const;
+
+		void setDmg(int amount);
+		void setArmor(int amount);
+		void setAmmo(int amount);
+		void setX(int amount);
+		void setY(int amount);
+		void setChp(int amount);
+		void setMhp(int amount);
 
 	protected:
 		int _chp;
 		int _mhp;
 		int _x;
 		int _y;
-		
+		int _dmg;
+		int _armor;
+		int _ammo;
+
 };
 
 #endif
