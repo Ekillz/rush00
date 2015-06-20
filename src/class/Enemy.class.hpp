@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:01:58 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 19:50:45 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 22:17:38 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ class Enemy : public Vessel
 		Enemy(Enemy const & src);
 		Enemy & operator=(Enemy const & src);
 		~Enemy(void);
+
+		Enemy & operator+=(int amount);
+		Enemy & operator-=(int amount);
 
 		void collideAction();
 		void shoot();

@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:55:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 20:57:49 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 22:16:17 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ Enemy & Enemy::operator=(Enemy const & src)
 	return (*this);
 }
 
+Enemy & Enemy::operator+=(int amount)
+{
+	this->_y = this->_y + amount;
+	return (*this);
+}
+
+Enemy & Enemy::operator-=(int amount)
+{
+	this->_y = this->_y - amount;
+	return (*this);
+}
+
 Enemy::Enemy(Enemy const & src)
 {
 	*this = src;
@@ -75,11 +87,11 @@ void Enemy::genMov()
 	{
 		case		1:
 			if ( this->getX() - 1 > 0 )
-				this->setX( getX() - 1 );
+				this->setX( this->getX() - 1 );
 			break;
 		case		2:
 			if ( this->getX() + 1 < MAX_W )
-				this->setX( getX() + 1 );
+				this->setX( this->getX() + 1 );
 			break;
 		case		3:
 			break;

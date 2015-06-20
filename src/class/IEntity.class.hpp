@@ -6,7 +6,7 @@
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:27:21 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 18:41:49 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 22:21:39 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <cstdlib>
+
+#define MAX_ENEMY 5
+#define MAX_OBJECT 10
 
 class IEntity
 {

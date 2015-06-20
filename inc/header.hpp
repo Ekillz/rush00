@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:43:21 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 21:07:42 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 22:13:30 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,11 @@
 #include "data.hpp"
 #include "screen.hpp"
 #include "actions.hpp"
+
+namespace col
+{
+	int checkCol(Player * a, Enemy b[MAX_ENEMY], Object c[MAX_OBJECT]);
+	void updatePos(Enemy b[MAX_ENEMY], Object c[MAX_OBJECT]);
+}
 
 #endif
