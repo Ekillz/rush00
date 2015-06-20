@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:57:14 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 16:10:59 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 17:08:32 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 # define DATA_HPP
 
+#include <stdlib.h>
+
 typedef enum
 {
 	ACTION_NONE,
-	ACTION_MOVE_UP,
-	ACTION_MOVE_DOWN,
+	ACTION_MOVE_LEFT,
+	ACTION_MOVE_RIGHT,
 	ACTION_SHOOT,
-} action_t
+} action_t;
 
-static void		free_obj( void );
-void			data_init( void );
+void			data_init( int y, int x );
 
-# define PLAYER		'>'
+# define PLAYER		'^'
 
 #endif

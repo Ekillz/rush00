@@ -1,18 +1,37 @@
-#include <ncurses.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   screen.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/06/20 16:42:36 by chaueur           #+#    #+#             */
+/*   Updated: 2015/06/20 17:21:12 by chaueur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static void		scr_end( void )
+#include <ncurses.h>
+#include "screen.hpp"
+#include <unistd.h>
+
+void		scr_end( void )
 {
 	endwin();
-	printf("Score : %d\n", score);
+	/* print score */
 }
 
-static void		scr_upd( void )
+void		scr_upd( int player_x, int player_y )
 {
 	erase();					/* clear window */
 
+	/* Position cursor on player. */
+	mvaddch(player_y, player_x, PLAYER);
+	move(player_y, player_x);
+
+	refresh();
 }
 
-static void		scr_init( void )
+void		scr_init( void )
 {
 	int			max_y, max_x;
 
@@ -26,27 +45,28 @@ static void		scr_init( void )
 		exit(0);
 	}
 
-	atexit( screen_end );
+	atexit( scr_end );
 	noecho();
 	keypad(stdscr, TRUE);
 	timeout(0);
 }
 
-static void		get_action( int *action )
+void		get_action( int *action )
 {
-	*action = 0
+	int		c = 0;
+	*action = 0;
 
 	while ( (c = getch() ) != ERR )
 	{
 			switch ( c )
 			{
 				case	KEY_RESIZE:
-					return 0;
-				case KEY_UP:
-			        *action = ACTION_MOVE_UP;
+					return;
+				case KEY_LEFT:
+			        *action = ACTION_MOVE_LEFT;
 			        break;
-			    case KEY_DOWN:
-			        *action = ACTION_MOVE_DOWN;
+			    case KEY_RIGHT:
+			        *action = ACTION_MOVE_RIGHT;
 			        break;
 			    case ' ':
 			        *action = ACTION_SHOOT;
@@ -59,15 +79,25 @@ static void		get_action( int *action )
 	}
 }
 
-static void		apply_action( int action )
+void		print_debug( void )
+{
+	printw("hi");
+}
+
+void		apply_action( int action, int *player_x )
 {
 	switch ( action )
 	{
-		case ACTION_MOVE_UP:
-      		/* INC PLAYER Y */
+		case ACTION_MOVE_LEFT:
+			if ( *player_x > 0 )
+      			(*player_x)--;
+      		/* debug */
+			print_debug();
+			printw("hi");
       		break;
-	    case ACTION_MOVE_DOWN:
-    	  	/* DEC PLAYER Y */
+	    case ACTION_MOVE_RIGHT:
+	    	if ( *player_x < MAX_W )
+    	  		(*player_x)++;
       		break;
     	case ACTION_SHOOT:
       		/* SPAWN SHOT */
@@ -77,7 +107,7 @@ static void		apply_action( int action )
 	}
 }
 
-static void		get_player_inputs( void )
+void		get_player_inputs( int *player_x )
 {
 	int		action;
 
@@ -85,32 +115,10 @@ static void		get_player_inputs( void )
 	{
 		get_action( &action );
 
-		apply_action( action);
+		apply_action( action, player_x );
+
+		/* Redraw screen. */
+	    scr_upd( *player_x, MAX_H );
+	    usleep(100000);
 	}
-}
-
-int		main(void)
-{
-	int		ch;
-
-	scr_init();
-
-	scr_upd();
-
-	get_player_inputs();
-
-	// ch = getch();				/* Wait for user input */
-	// if ( ch == KEY_F(1) )		/* Without keypad enabled this will */
-	// 	printw("F1 Key pressed");
-	// else
-	// {
-	// 	printw("The pressed key is ");
-	// 	attron(A_BOLD);
-	// 	printw("%c", ch);
-	// 	attroff(A_BOLD);
-	// }
-	// refresh();
-	// getch();
-	// endwin();					/* End curses mode		  */
-	return 0;
 }
