@@ -6,7 +6,7 @@
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:27:21 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 16:48:40 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 18:40:19 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class IEntity
 {
 	virtual void collideAction() = 0;
+	virtual void shoot() = 0;
 };
 
 #endif
