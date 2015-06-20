@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   screen.hpp                                         :+:      :+:    :+:   */
+/*   Vessel.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/20 13:46:35 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 17:24:32 by chaueur          ###   ########.fr       */
+/*   Created: 2015/06/20 16:37:12 by emammadz          #+#    #+#             */
+/*   Updated: 2015/06/20 19:02:27 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCREEN_HPP
+#include "header.hpp"
 
-# define SCREEN_HPP
+Vessel::Vessel(void)
+{
+	return;
+}
 
-# define MAX_W		800
-# define MAX_H		100
+Vessel & Vessel::operator=(Vessel const & src)
+{
+	*this = src;
+	return (*this);
+}
 
-#include "data.hpp"
+Vessel::Vessel(Vessel const & src)
+{
+	*this = src;
+	return ;
+}
 
-void		scr_end( void );
-void		scr_upd( int x, int y );
-void		scr_init( void );
-void		get_action( action_t *action );
-void		apply_action( action_t action );
-void		get_player_inputs( int *player_y );
+Vessel::~Vessel(void)
+{
+	return ;
+}
 
-#endif /* SCREEN_HPP */
+void Vessel::collideAction()
+{
+	std::cout << "collide action" << std::endl;
+}

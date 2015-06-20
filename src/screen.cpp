@@ -6,13 +6,11 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:42:36 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 17:21:12 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 18:57:43 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ncurses.h>
-#include "screen.hpp"
-#include <unistd.h>
+#include "header.hpp"
 
 void		scr_end( void )
 {
@@ -20,35 +18,15 @@ void		scr_end( void )
 	/* print score */
 }
 
-void		scr_upd( int player_x, int player_y )
+void		scr_upd( Player *p )
 {
 	erase();					/* clear window */
 
 	/* Position cursor on player. */
-	mvaddch(player_y, player_x, PLAYER);
-	move(player_y, player_x);
+	mvaddch( p->getY(), p->getX(), PLAYER );
+	move( p->getY(), p->getX() );
 
 	refresh();
-}
-
-void		scr_init( void )
-{
-	int			max_y, max_x;
-
-	initscr();
-
-	getmaxyx(stdscr, max_y, max_x);
-	if ( max_x < MAX_W || max_y < MAX_H )
-	{
-		endwin();
-		printf( "Screen must be at least %dx / %dy\n", MAX_W, MAX_H );
-		exit(0);
-	}
-
-	atexit( scr_end );
-	noecho();
-	keypad(stdscr, TRUE);
-	timeout(0);
 }
 
 void		get_action( int *action )
@@ -84,20 +62,20 @@ void		print_debug( void )
 	printw("hi");
 }
 
-void		apply_action( int action, int *player_x )
+void		apply_action( int action, Player *p )
 {
 	switch ( action )
 	{
 		case ACTION_MOVE_LEFT:
-			if ( *player_x > 0 )
-      			(*player_x)--;
+			if ( p->getX() > 0 )
+      			p->setX( p->getX() - 1 );
       		/* debug */
 			print_debug();
 			printw("hi");
       		break;
 	    case ACTION_MOVE_RIGHT:
-	    	if ( *player_x < MAX_W )
-    	  		(*player_x)++;
+	    	if ( p->getX() < MAX_W )
+    	  		p->setX( p->getX() + 1 );
       		break;
     	case ACTION_SHOOT:
       		/* SPAWN SHOT */
@@ -107,7 +85,7 @@ void		apply_action( int action, int *player_x )
 	}
 }
 
-void		get_player_inputs( int *player_x )
+void		get_player_inputs( Player *p )
 {
 	int		action;
 
@@ -115,10 +93,30 @@ void		get_player_inputs( int *player_x )
 	{
 		get_action( &action );
 
-		apply_action( action, player_x );
+		apply_action( action, p );
 
 		/* Redraw screen. */
-	    scr_upd( *player_x, MAX_H );
+	    scr_upd( p );
 	    usleep(100000);
 	}
+}
+
+void		scr_init( void )
+{
+	int			max_y, max_x;
+
+	initscr();
+
+	getmaxyx(stdscr, max_y, max_x);
+	if ( max_x < MAX_W || max_y < MAX_H )
+	{
+		endwin();
+		printf( "Screen must be at least %dx / %dy\n", MAX_W, MAX_H );
+		exit(0);
+	}
+
+	atexit( scr_end );
+	noecho();
+	keypad(stdscr, TRUE);
+	timeout(0);
 }

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.cpp                                           :+:      :+:    :+:   */
+/*   IEntity.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/20 13:53:38 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 17:10:14 by chaueur          ###   ########.fr       */
+/*   Created: 2015/06/20 16:27:21 by emammadz          #+#    #+#             */
+/*   Updated: 2015/06/20 16:48:40 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "screen.hpp"
+#ifndef IENTITY_CLASS_HPP
+#define IENTITY_CLASS_HPP
 
-static void		free_obj( void )
+#include <iostream>
+#include <cstdlib>
+
+class IEntity
 {
-	return;
-}
+	virtual void collideAction() = 0;
+};
 
-void			data_init( int player_y, int player_x )
-{
-	player_x = MAX_W / 2;
-	player_y = MAX_H;
-
-	atexit( free_obj );
-}
+#endif

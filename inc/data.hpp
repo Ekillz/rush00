@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:57:14 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 17:08:32 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 18:50:29 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define DATA_HPP
 
-#include <stdlib.h>
+#include "header.hpp"
 
 typedef enum
 {
@@ -24,7 +24,7 @@ typedef enum
 	ACTION_SHOOT,
 } action_t;
 
-void			data_init( int y, int x );
+void			data_init( Player *p );
 
 # define PLAYER		'^'
 
