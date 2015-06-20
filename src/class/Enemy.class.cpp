@@ -6,7 +6,7 @@
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:55:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 19:31:01 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 19:43:58 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ Enemy::Enemy(int x, int y) : Vessel()
 {
 	this->_x = x;
 	this->_y = y;
+	this->_chp = 1;
+	this->_mhp = 1;
+	this->_dmg = 1;
+	this->_armor = 0;
+	this->_ammo = 20;
 	return ;
 }
 
