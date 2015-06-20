@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IEntity.class.hpp                                   :+:      :+:    :+:   */
+/*   Enemy.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/20 16:27:21 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 18:41:49 by emammadz         ###   ########.fr       */
+/*   Created: 2015/06/20 18:01:58 by emammadz          #+#    #+#             */
+/*   Updated: 2015/06/20 19:28:49 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IENTITY_CLASS_HPP
-#define IENTITY_CLASS_HPP
+#ifndef ENEMY_CLASS_HPP
+#define ENEMY_CLASS_HPP
 
-#include <iostream>
-#include <cstdlib>
+#include "Vessel.class.hpp"
 
-class IEntity
+class Enemy : public Vessel
 {
-	virtual void collideAction() = 0;
+	public:
+		Enemy(void);
+		Enemy(int x, int y);
+		Enemy(Enemy const & src);
+		Enemy & operator=(Enemy const & src);
+		~Enemy(void);
+
+		void collideAction();
+		void shoot();
 };
 
 #endif

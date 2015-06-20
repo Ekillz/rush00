@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:43:21 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 18:51:13 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/20 19:42:04 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 #include <stdlib.h>
 
 #include "../src/class/Player.class.hpp"
-#include "../src/class/Vessel.class.hpp"
+#include "../src/class/Enemy.class.hpp"
+#include "../src/class/Object.class.hpp"
 #include "data.hpp"
 #include "screen.hpp"
 
