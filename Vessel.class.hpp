@@ -6,7 +6,7 @@
 /*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:26:23 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 18:23:40 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/20 18:43:58 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Vessel : public IEntity
 		~Vessel(void);
 
 		void collideAction();
+
+		virtual void shoot() = 0;
 
 		int getDmg() const;
 		int getArmor() const;
