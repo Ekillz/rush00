@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:57:14 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 18:59:28 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/21 20:19:18 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef enum
 	ACTION_SHOOT,
 } action_t;
 
-void			data_init( Player *p );
+void			data_init( void );
+void			game_over( Player *p );
 
 # define PLAYER		"/^\\"
 # define ENEMY		"+"
@@ -34,4 +35,5 @@ void			data_init( Player *p );
 # define MAX_ENEMY 	30
 # define MAX_OBJECT 40
 # define FRAMERATE  60
+
 #endif

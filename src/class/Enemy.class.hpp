@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:01:58 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 22:17:38 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/21 20:04:49 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Enemy : public Vessel
 		Enemy(int x, int y);
 		Enemy(Enemy const & src);
 		Enemy & operator=(Enemy const & src);
-		~Enemy(void);
+		virtual ~Enemy(void);
 
 		Enemy & operator+=(int amount);
 		Enemy & operator-=(int amount);

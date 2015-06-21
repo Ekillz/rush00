@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:20:21 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/21 14:23:45 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 20:04:46 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Object : public IEntity
 		Object(int x, int y, std::string type);
 		Object(Object const & src);
 		Object & operator=(Object const & src);
-		~Object(void);
+		virtual ~Object(void);
 
 		void collideAction();
 		

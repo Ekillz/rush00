@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:50:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/21 15:49:42 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 20:22:00 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Player : public Vessel
 		Player(void);
 		Player(Player const & src);
 		Player & operator=(Player const & src);
-		~Player(void);
+		virtual ~Player(void);
 
 		int getScore() const;
 		
