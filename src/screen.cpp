@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:42:36 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 16:33:55 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 18:07:39 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		print_score( int score )
 {
 	/* HUD. */
-  	mvprintw(0, 0, "Score: %5d", score);
+	mvprintw(0, 0, "Score: %5d", score);
 }
 
 void		scr_end( void )
@@ -26,6 +26,7 @@ void		scr_end( void )
 
 void		scr_upd( Player *p, Enemy *horde, Object *objs )
 {
+	int colision;
 	/* clear window */
 	erase();	
 
@@ -42,8 +43,10 @@ void		scr_upd( Player *p, Enemy *horde, Object *objs )
 	/* Check projecitles collision */
 	col::checkHit( p, horde, objs );
 
-	if ( col::checkCol( p, horde, objs ) == 1 || col::checkCol( p, horde, objs ) == 2 )
-		sleep(5);
+
+	colision = col::checkCol( p, horde, objs );
+	if (colision == 1 || colision == 2)
+		sleep(1);
 
 	print_score( p->getScore() );
 	refresh();
@@ -56,13 +59,13 @@ void		scr_init( void )
 	initscr();
 	curs_set(0); /* Hide cursor */
 	getmaxyx(stdscr, max_y, max_x);
-	if ( max_x < MAX_W || max_y < MAX_H )
+	if ( max_x < MAX_W || max_y < 50 )
 	{
 		endwin();
-		printf( "Screen must be at least %dpx / %dpx\n", MAX_W * 8, MAX_H * 16 );
+		printf("%d y %d x\n", max_y, max_x);
+		printf( "Screen must be at least %dpx / %dpx\n", MAX_W, MAX_H );
 		exit(0);
 	}
-
 	atexit( scr_end );
 	noecho();
 	keypad(stdscr, TRUE);

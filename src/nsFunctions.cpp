@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 20:59:56 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/21 16:21:18 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 18:04:48 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ int col::checkCol(Player * a, Enemy b[MAX_ENEMY], Object c[MAX_OBJECT])
 	int i = 0;
 	while (i < MAX_ENEMY)
 	{
-		if (((a->getX() == b[i].getX())  && (a->getY() == b[i].getY())) ||
-				((a->getX() + 1 == b[i].getX())  && (a->getY() == b[i].getY())) ||
-				((a->getX() - 1 == b[i].getX())  && (a->getY() == b[i].getY())))
+		if (((a->getX() + 1 == b[i].getX())  && (a->getY() == b[i].getY())) ||
+				((a->getX() + 2 == b[i].getX())  && (a->getY() == b[i].getY())) ||
+				((a->getX() == b[i].getX())  && (a->getY() == b[i].getY())))
 			return (1);
 		i++;
 	}
 	i = 0;
 	while (i < MAX_OBJECT)
 	{
-		if (((a->getX() == c[i].getX())  && (a->getY() == c[i].getY())) ||
-				((a->getX() - 1 == c[i].getX())  && (a->getY() == c[i].getY())) ||
-				((a->getX() + 1 == c[i].getX())  && (a->getY() == c[i].getY())))
+		if (((a->getX()  + 1== c[i].getX())  && (a->getY() == c[i].getY())) ||
+				((a->getX() == c[i].getX())  && (a->getY() == c[i].getY())) ||
+				((a->getX() + 2 == c[i].getX())  && (a->getY() == c[i].getY())))
 			return (2);
 		i++;
 	}
@@ -77,7 +77,7 @@ void col::updatePos(Enemy b[MAX_ENEMY], Object c[MAX_OBJECT])
 			else if (c[i].getType() == "fShot")
 			{
 				c[i] -= 1;
-				mvprintw( c[i].getY(), c[i].getX() + 1, FSHOT );
+				mvprintw( c[i].getY(), c[i].getX(), FSHOT );
 				move( c[i].getY(), c[i].getX() );
 			}
 		}
@@ -172,6 +172,7 @@ void col::checkHit(Player * a, Enemy b[MAX_ENEMY], Object c[MAX_OBJECT])
                            c[e].setChp(c[e].getChp() - 1);
                            a->setScore(a->getScore() + 5);
                            c[i].setChp(0);
+						   break ;
                        }
                    }
                    e++;

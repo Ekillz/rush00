@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 19:28:02 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 16:33:15 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 18:09:25 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void		apply_action( int action, Player *p, Object *objs )
     	  		p->setX( p->getX() + 1 );
       		break;
     	case ACTION_SHOOT:
-    		col::createObject( objs, p->getX(), p->getY() - 1, "fShot" );
+    		col::createObject( objs, p->getX() + 1, p->getY() - 1, "fShot" );
       		break;
 	    default:
 	      	break;
@@ -72,6 +72,7 @@ void		random_generate( Enemy *horde, Object *objs )
 {
 	int		seed;
 
+	int count = 0;
 	switch ( rand() % 3 )
 	{
 		case		1:
@@ -81,7 +82,11 @@ void		random_generate( Enemy *horde, Object *objs )
 				col::createObject( objs, horde[seed].getX(), horde[seed].getY() + 1, "eShot" );
 			break;
 		case		2:
-			col::createObject( objs, random() % MAX_W, 0, "obstacle" );
+			if (count < MAX_OBJECT - 20)
+			{
+				count++;
+				col::createObject( objs, random() % MAX_W, 0, "obstacle" );
+			}
 			break;
 		case		3:
 			break;
