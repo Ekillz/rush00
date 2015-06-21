@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 19:28:02 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 18:09:25 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/21 19:19:13 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,22 @@ void		random_generate( Enemy *horde, Object *objs )
 
 void		main_loop( Player *p, Enemy *horde, Object *objs )
 {
-	int		action;
+	int				action;
+	struct timeval	st;
+	struct timeval	end;
 
 	while ( 42 )
 	{
+		gettimeofday(&st, NULL);
 		get_action( &action );
 		apply_action( action, p, objs );
 		random_generate( horde, objs );
 		// scroll_objects( horde, objs );
 		/* Redraw screen. -> give array of instance */
+		gettimeofday(&end, NULL);
+		if (st.tv_usec < end.tv_usec)
+			st.tv_usec = end.tv_usec;;
+		usleep( ( FRAMERATE * 1000 ) - ( end.tv_usec - st.tv_usec ) );
 	    scr_upd( p, horde, objs );
-	    usleep(100000);
 	}
 }

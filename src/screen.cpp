@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:42:36 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 18:07:39 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/21 19:42:15 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ void		scr_upd( Player *p, Enemy *horde, Object *objs )
 
 	/* Position cursor on player. */
 	mvprintw( p->getY(), p->getX(), PLAYER );
-	move( p->getY(), p->getX() );
+	//move( p->getY(), p->getX() );
 
-	/* Update enemies and projectiles */
-	col::updatePos( horde, objs );
 
 	/* Check enemies and projectiles */
 	col::checkPos( horde, objs );
@@ -46,7 +44,15 @@ void		scr_upd( Player *p, Enemy *horde, Object *objs )
 
 	colision = col::checkCol( p, horde, objs );
 	if (colision == 1 || colision == 2)
-		sleep(1);
+		p->setChp(0);
+
+	col::updatePos(p,  horde, objs );
+	/* Update enemies and projectiles */
+	if (p->getChp() == 0)
+	{
+		p->setScore(p->getScore() - 500);
+		p->setChp(1);
+	}
 
 	print_score( p->getScore() );
 	refresh();

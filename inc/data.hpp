@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:57:14 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 14:29:17 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 18:59:28 by emammadz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void			data_init( Player *p );
 # define FSHOT		"|"
 # define MAX_ENEMY 	30
 # define MAX_OBJECT 40
-
+# define FRAMERATE  60
 #endif
