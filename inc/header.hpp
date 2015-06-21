@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:43:21 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 16:00:35 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 16:19:08 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ namespace col
 	void createObject(Object c[MAX_OBJECT], int x, int y, std::string type);
 	void checkPos(Enemy b[MAX_ENEMY], Object c[MAX_OBJECT]);
 	void updateEshot( Object *eShot );
+	void checkHit(Player * a, Enemy b[MAX_ENEMY], Object c[MAX_OBJECT]);
 }
 
 #endif

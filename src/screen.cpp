@@ -6,11 +6,17 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:42:36 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 14:39:13 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 16:33:55 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
+
+void		print_score( int score )
+{
+	/* HUD. */
+  	mvprintw(0, 0, "Score: %5d", score);
+}
 
 void		scr_end( void )
 {
@@ -26,13 +32,20 @@ void		scr_upd( Player *p, Enemy *horde, Object *objs )
 	/* Position cursor on player. */
 	mvprintw( p->getY(), p->getX(), PLAYER );
 	move( p->getY(), p->getX() );
-	/* Check enemies and projectiles */
-	col::checkPos( horde, objs );
+
 	/* Update enemies and projectiles */
 	col::updatePos( horde, objs );
+
+	/* Check enemies and projectiles */
+	col::checkPos( horde, objs );
+
+	/* Check projecitles collision */
+	col::checkHit( p, horde, objs );
+
 	if ( col::checkCol( p, horde, objs ) == 1 || col::checkCol( p, horde, objs ) == 2 )
 		sleep(5);
 
+	print_score( p->getScore() );
 	refresh();
 }
 

@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:46:35 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 14:14:07 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 16:16:55 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 #include "data.hpp"
 
+void		print_score( int score );
 void		scr_end( void );
 void		scr_upd( Player *p, Enemy *horde, Object *objs );
 void		scr_init( void );

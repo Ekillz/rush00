@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 20:59:56 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/21 16:05:37 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 16:21:18 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,3 +139,46 @@ void col::createObject(Object c[MAX_OBJECT], int x, int y, std::string type)
        i++;
    }
 }
+
+void col::checkHit(Player * a, Enemy b[MAX_ENEMY], Object c[MAX_OBJECT])
+{
+   int i = 0;
+   int e;
+   while (i < MAX_OBJECT)
+   {
+       if (c[i].getChp() > 0)
+       {
+           if (c[i].getType() == "fShot")
+           {
+               e = 0;
+               while (e < MAX_ENEMY)
+               {
+                   if ((c[i].getX() == b[e].getX()) &&(c[i].getY() == b[e].getY()))
+                   {
+                       b[e].setChp(b[e].getChp() - 1);
+                       a->setScore(a->getScore() + 10);
+                       c[i].setChp(0);
+                       break;
+                   }
+                   e++;
+               }
+               e = 0;
+               while (e < MAX_OBJECT)
+               {
+                   if (c[e].getType() != "fShot")
+                   {
+                       if ((c[i].getX() == c[e].getX()) && (c[i].getY() == c[e].getY()))
+                       {
+                           c[e].setChp(c[e].getChp() - 1);
+                           a->setScore(a->getScore() + 5);
+                           c[i].setChp(0);
+                       }
+                   }
+                   e++;
+               }
+           }
+       }
+       i++;
+   }
+}
+

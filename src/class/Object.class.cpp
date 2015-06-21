@@ -6,18 +6,18 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:23:50 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/21 14:23:16 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 16:17:21 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Object.class.hpp"
 
-Object::Object(void) : _x(1), _y(1), _dmg(1), _type("obstacle")
+Object::Object(void) : _chp(0), _x(1), _y(1), _dmg(1), _type("obstacle")
 {
 	return;
 }
 
-Object::Object(int x, int y, std::string type) : _x(x), _y(y), _type(type)
+Object::Object(int x, int y, std::string type) : _chp(1), _x(x), _y(y), _type(type)
 {
 	this->_dmg = 1;
 	std::cout << "object x: " << x << "  y: " << y << std::endl;
@@ -26,6 +26,7 @@ Object::Object(int x, int y, std::string type) : _x(x), _y(y), _type(type)
 
 Object & Object::operator=(Object const & src)
 {
+	this->_chp = src.getChp();
 	this->_x = src.getX();
 	this->_y = src.getY();
 	this->_dmg = src.getDmg();
