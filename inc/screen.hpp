@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:46:35 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 20:31:00 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 21:12:07 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define SCREEN_HPP
 
 # define MAX_W		76
-# define MAX_H		69
+# define MAX_H		78
 
 #include "data.hpp"
 

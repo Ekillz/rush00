@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:57:14 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/21 20:19:18 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 21:25:11 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef enum
 	ACTION_NONE,
 	ACTION_MOVE_LEFT,
 	ACTION_MOVE_RIGHT,
+	ACTION_MOVE_UP,
+	ACTION_MOVE_DOWN,
 	ACTION_SHOOT,
 } action_t;
 

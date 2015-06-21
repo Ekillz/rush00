@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:55:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/21 20:27:54 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 21:03:02 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Enemy::shoot()
 
 void Enemy::genMov()
 {
-	switch ( random() % 5 )
+	switch ( random() % 20 )
 	{
 		case		1:
 			if ( this->getX() - 1 > 0 )
