@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 13:57:14 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 21:05:12 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 14:29:17 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ typedef enum
 void			data_init( Player *p );
 
 # define PLAYER		"/^\\"
-# define ENEMY		"-+-"
+# define ENEMY		"+"
+# define OBSTACLE	"o"
+# define ESHOT		"|"
+# define FSHOT		"|"
+# define MAX_ENEMY 	30
+# define MAX_OBJECT 40
 
 #endif

@@ -6,22 +6,11 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 19:28:02 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 20:54:19 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 15:42:41 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
-
-void		scroll_objects( Enemy *e )
-{
-	if ( e->getY() + 1 < MAX_H)
-	{
-		e->setY( e->getY() + 1 );
-		e->genMov();
-	}
-	else
-		e->setY( MAX_H + 5 );
-}
 
 void		get_action( int *action )
 {
@@ -33,7 +22,7 @@ void		get_action( int *action )
 			switch ( c )
 			{
 				case	KEY_RESIZE:
-					return;
+					exit(0);
 				case KEY_LEFT:
 			        *action = ACTION_MOVE_LEFT;
 			        break;
@@ -56,7 +45,7 @@ void		print_debug( void )
 	printw("hi");
 }
 
-void		apply_action( int action, Player *p )
+void		apply_action( int action, Player *p, Object *objs )
 {
 	switch ( action )
 	{
@@ -72,24 +61,47 @@ void		apply_action( int action, Player *p )
     	  		p->setX( p->getX() + 1 );
       		break;
     	case ACTION_SHOOT:
-      		/* SPAWN SHOT */
+    		col::createObject( objs, p->getX(), p->getY() - 1, "fShot" );
       		break;
 	    default:
 	      	break;
 	}
 }
 
-void		main_loop( Player *p, Enemy *e )
+void		random_generate( Enemy *horde, Object *objs )
+{
+	int		seed;
+
+	switch ( rand() % 3 )
+	{
+		case		1:
+			col::createEnemy( horde, random() % MAX_W, 0 );
+			seed = rand() % MAX_ENEMY;
+			if ( horde[seed].getChp() )
+				col::createObject( objs, horde[seed].getX(), horde[seed].getY() + 1, "eShot" );
+			break;
+		case		2:
+			col::createObject( objs, random() % MAX_W, 0, "obstacle" );
+			break;
+		case		3:
+			break;
+		default:
+			break;
+	}
+}
+
+void		main_loop( Player *p, Enemy *horde, Object *objs )
 {
 	int		action;
 
 	while ( 42 )
 	{
 		get_action( &action );
-		apply_action( action, p );
-		scroll_objects( e );
+		apply_action( action, p, objs );
+		random_generate( horde, objs );
+		// scroll_objects( horde, objs );
 		/* Redraw screen. -> give array of instance */
-	    scr_upd( p, e );
+	    scr_upd( p, horde, objs );
 	    usleep(100000);
 	}
 }

@@ -6,7 +6,7 @@
 #    By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/15 10:20:20 by chaueur           #+#    #+#              #
-#    Updated: 2015/06/20 22:12:44 by emammadz         ###   ########.fr        #
+#    Updated: 2015/06/21 14:22:57 by chaueur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC = src/data.cpp \
 
 SRC2 = src/class/Player.class.cpp \
 	   src/class/Vessel.class.cpp \
-	   src/class/Enemy.class.cpp
+	   src/class/Enemy.class.cpp \
+	   src/class/Object.class.cpp
 
 SRC0 = data.o \
 	  main.o \
@@ -34,7 +35,8 @@ SRC0 = data.o \
 	  nsFunctions.o \
 	  Player.class.o \
 	  Vessel.class.o \
-	  Enemy.class.o
+	  Enemy.class.o \
+	  Object.class.o
 
 all: $(NAME)
 

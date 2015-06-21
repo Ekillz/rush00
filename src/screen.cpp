@@ -6,7 +6,7 @@
 /*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:42:36 by chaueur           #+#    #+#             */
-/*   Updated: 2015/06/20 21:17:36 by chaueur          ###   ########.fr       */
+/*   Updated: 2015/06/21 14:39:13 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,20 @@ void		scr_end( void )
 	/* print score */
 }
 
-void		scr_upd( Player *p, Enemy *e )
+void		scr_upd( Player *p, Enemy *horde, Object *objs )
 {
-	erase();					/* clear window */
+	/* clear window */
+	erase();	
 
 	/* Position cursor on player. */
-	if ( p )
-	{
-		mvprintw( p->getY(), p->getX(), PLAYER );
-		mvprintw( p->getY(), p->getX(), PLAYER );	
-		move( p->getY(), p->getX() );
-	}
-	if ( e )
-	{
-		mvprintw( e->getY(), e->getX(), ENEMY );
-		mvprintw( e->getY(), e->getX(), ENEMY );	
-	}
+	mvprintw( p->getY(), p->getX(), PLAYER );
+	move( p->getY(), p->getX() );
+	/* Check enemies and projectiles */
+	col::checkPos( horde, objs );
+	/* Update enemies and projectiles */
+	col::updatePos( horde, objs );
+	if ( col::checkCol( p, horde, objs ) == 1 || col::checkCol( p, horde, objs ) == 2 )
+		sleep(5);
 
 	refresh();
 }
@@ -43,7 +41,7 @@ void		scr_init( void )
 	int			max_y, max_x;
 
 	initscr();
-
+	curs_set(0); /* Hide cursor */
 	getmaxyx(stdscr, max_y, max_x);
 	if ( max_x < MAX_W || max_y < MAX_H )
 	{

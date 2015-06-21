@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Player.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 16:50:38 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 18:14:52 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/21 15:49:42 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Player : public Vessel
 		
 		void collideAction();
 		void shoot();
+		
 	private:
 		int _score;
 };

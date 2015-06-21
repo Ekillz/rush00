@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Object.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emammadz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chaueur <chaueur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 18:23:50 by emammadz          #+#    #+#             */
-/*   Updated: 2015/06/20 22:21:22 by emammadz         ###   ########.fr       */
+/*   Updated: 2015/06/21 14:23:16 by chaueur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ void Object::collideAction(void)
 	std::cout << "object collided" << std::endl;
 }
 
+int Object::getChp() const { return this->_chp; }
 int Object::getX() const { return this->_x; }
 int Object::getY() const { return this->_y; }
 int Object::getDmg() const{ return this->_dmg; }
 std::string Object::getType() const { return this->_type; }
 
+void Object::setChp(int amount) { this->_chp = amount;}
 void Object::setX(int amount) { this->_x = amount;}
 void Object::setY(int amount) { this->_y = amount;}
 void Object::setDmg(int amount) { this->_dmg = amount;}
